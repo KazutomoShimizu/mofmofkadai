@@ -4,7 +4,8 @@ class CreateStations < ActiveRecord::Migration[6.0]
       t.string :route
       t.string :station_name
       t.integer :time
-
+      t.references :property, foreign_key: true
+      
       t.timestamps
     end
   end

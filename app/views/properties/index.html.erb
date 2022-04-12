@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>物件一覧</h1>
+<h1>一覧</h1>
 
+<hr>
+<h2>物件一覧</h2>
 <table>
   <thead>
     <tr>
@@ -18,9 +20,9 @@
     <% @properties.each do |property| %>
       <tr>
         <td><%= property.name %></td>
-        <td><%= property.price %></td>
+        <td><%= "#{property.price}円" %></td>
         <td><%= property.address %></td>
-        <td><%= property.age %></td>
+        <td><%= "#{property.age}年" %></td>
         <td><%= property.memo %></td>
         <td><%= link_to '詳細', property %></td>
         <td><%= link_to '戻る', edit_property_path(property) %></td>

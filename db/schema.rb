@@ -23,11 +23,14 @@ ActiveRecord::Schema.define(version: 2022_04_10_023217) do
   end
 
   create_table "stations", force: :cascade do |t|
-    t.string "Route"
+    t.string "route"
     t.string "station_name"
     t.integer "time"
+    t.integer "property_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["property_id"], name: "index_stations_on_property_id"
   end
 
+  add_foreign_key "stations", "properties"
 end

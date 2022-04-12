@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[ show edit update destroy ]
-  before_action :set_stations, only: %i[ show edit update]
+  before_action :set_stations, only: %i[ show edit update ]
 
   def index
     @properties = Property.all
@@ -58,9 +58,13 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:id])
   end
 
+  def set_stations
+    @stations = @property.stations
+  end
+
   def property_params
     params.require(:property).permit(
       :name, :price, :address, :age, :memo,
-      stations_attributes: [:route, :station_name, :time])
+      stations_attributes: [:id, :route, :station_name, :time])
   end
 end
